@@ -45,6 +45,19 @@
 <h2>Pipe Diameter; Material</h2>
 <ul id="diameterList"></ul>
 <script>
+    // IE polyfill, sorry
+    if (!Array.prototype.includes) {
+        Object.defineProperty(Array.prototype, "includes", {
+            enumerable: false,
+            value: function(obj) {
+                var newArr = this.filter(function(el) {
+                    return el == obj;
+                });
+                return newArr.length > 0;
+            }
+        });
+    }
+
     var options = [
             {
                 title: "Approval",
